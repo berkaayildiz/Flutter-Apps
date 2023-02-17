@@ -30,43 +30,23 @@ numberGuessingGame() {
 
 int guessNumber = 50;
 int guessChange = 25;
-
-List guessedNumbers = [50];
+int guessCount = 0;
 
 guessingTheNumber() {
-  guessNumber = guessNumber + guessChange;
+  if (guessChange == 2) {
+    guessChange = 1;
+  }
+  if (guessCount == 7) {
+    Timer(const Duration(seconds: 1), () {
+      messages.add(
+        Message(
+          messageContent:
+              "Hey, hile yapıyorsun! Daha fazla oynamak istemiyorum, Başka bir şey yapalım.",
+          messageType: MessageType.reciever,
+        ),
+      );
+    });
 
-  if (guessedNumbers.contains(guessNumber)) {
-    // User aklından 74 tutarsa bug oluyor ve çözmeye üşendim.
-    // O yüzden böyle çözdüm.
-    if (guessNumber == 75) {
-      Timer(const Duration(seconds: 1), () {
-        messages.add(
-          Message(
-            messageContent: "Tuttuğun sayı kesinlikle 74!",
-            messageType: MessageType.reciever,
-          ),
-        );
-      });
-      Timer(const Duration(seconds: 1), () {
-        messages.add(
-          Message(
-            messageContent: "Şimdi ne yapmak istersin?",
-            messageType: MessageType.reciever,
-          ),
-        );
-      });
-    } else {
-      Timer(const Duration(seconds: 1), () {
-        messages.add(
-          Message(
-            messageContent:
-                "Hey, hile yapıyorsun! Daha fazla oynamak istemiyorum, Başka bir şey yapalım.",
-            messageType: MessageType.reciever,
-          ),
-        );
-      });
-    }
     Timer(const Duration(seconds: 2), () {
       answers.addAll(
         [
@@ -78,10 +58,9 @@ guessingTheNumber() {
     });
     guessNumber = 50;
     guessChange = 25;
-    guessedNumbers.clear();
+    guessCount = 0;
     return;
   }
-  guessNumber = guessNumber - guessChange;
 
   switch (messages.last.messageContent) {
     case 'Evet, bildin!':
@@ -110,12 +89,12 @@ guessingTheNumber() {
       });
       guessNumber = 50;
       guessChange = 25;
-      guessedNumbers.clear();
+      guessCount = 0;
       break;
     case 'Hayır, daha yüksek.':
       guessNumber = guessNumber + guessChange;
-      guessedNumbers.add(guessNumber);
       guessChange = (guessChange / 2).ceil();
+      guessCount++;
       Timer(const Duration(seconds: 1), () {
         messages.add(
           Message(
@@ -130,8 +109,8 @@ guessingTheNumber() {
       break;
     case 'Hayır, daha düşük.':
       guessNumber = guessNumber - guessChange;
-      guessedNumbers.add(guessNumber);
       guessChange = (guessChange / 2).ceil();
+      guessCount++;
       Timer(const Duration(seconds: 1), () {
         messages.add(
           Message(

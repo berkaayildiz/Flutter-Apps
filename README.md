@@ -37,7 +37,7 @@ These are the only tools used to build all of the projects.
 
 You are more than welcome to open pull request if you want to contribute to any of the projects in this repository. You can also open an issue for the bugs in the projects.
 
-# Project
+# Projects
 The general information about the projects in this repository may be found here.
 
 ## ChatBot App 
