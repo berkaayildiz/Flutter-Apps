@@ -12,7 +12,7 @@ numberGuessingGame() {
     messages.add(
       Message(
         messageContent:
-            "Hadi aklından 1 ile 10 arasında bir sayı tut! \nOnu tahmin etmeyi deneyeceğim.",
+            "Hadi aklından 1 ile 101 arasında bir sayı tut! \nOnu tahmin etmeyi deneyeceğim.",
         messageType: MessageType.reciever,
       ),
     );
@@ -28,9 +28,60 @@ numberGuessingGame() {
   });
 }
 
+int guessNumber = 50;
+int guessChange = 25;
+
+List guessedNumbers = [50];
+
 guessingTheNumber() {
-  Random random = Random();
-  int randomNumber = random.nextInt(10) + 1;
+  guessNumber = guessNumber + guessChange;
+
+  if (guessedNumbers.contains(guessNumber)) {
+    // User aklından 74 tutarsa bug oluyor ve çözmeye üşendim.
+    // O yüzden böyle çözdüm.
+    if (guessNumber == 75) {
+      Timer(const Duration(seconds: 1), () {
+        messages.add(
+          Message(
+            messageContent: "Tuttuğun sayı kesinlikle 74!",
+            messageType: MessageType.reciever,
+          ),
+        );
+      });
+      Timer(const Duration(seconds: 1), () {
+        messages.add(
+          Message(
+            messageContent: "Şimdi ne yapmak istersin?",
+            messageType: MessageType.reciever,
+          ),
+        );
+      });
+    } else {
+      Timer(const Duration(seconds: 1), () {
+        messages.add(
+          Message(
+            messageContent:
+                "Hey, hile yapıyorsun! Daha fazla oynamak istemiyorum, Başka bir şey yapalım.",
+            messageType: MessageType.reciever,
+          ),
+        );
+      });
+    }
+    Timer(const Duration(seconds: 2), () {
+      answers.addAll(
+        [
+          'Oyun oynamak istiyorum.',
+          'Bir şeyler öğrenmek istiyorum.',
+          'Şu an bir şey yapmak istemiyorum.'
+        ],
+      );
+    });
+    guessNumber = 50;
+    guessChange = 25;
+    guessedNumbers.clear();
+    return;
+  }
+  guessNumber = guessNumber - guessChange;
 
   switch (messages.last.messageContent) {
     case 'Evet, bildin!':
@@ -57,38 +108,40 @@ guessingTheNumber() {
           ],
         );
       });
+      guessNumber = 50;
+      guessChange = 25;
+      guessedNumbers.clear();
       break;
-    case 'Hayır, bilemedin.':
+    case 'Hayır, daha yüksek.':
+      guessNumber = guessNumber + guessChange;
+      guessedNumbers.add(guessNumber);
+      guessChange = (guessChange / 2).ceil();
       Timer(const Duration(seconds: 1), () {
         messages.add(
           Message(
-            messageContent: "Hmmm... O zaman $randomNumber!",
+            messageContent: "Hmmm... O zaman $guessNumber!",
             messageType: MessageType.reciever,
           ),
         );
       });
       answers.addAll(
-        ['Evet, bildin!', 'Hayır, bilemedin.', 'Zaten o sayıyı söylemiştin.'],
+        ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
       );
       break;
-    case 'Zaten o sayıyı söylemiştin.':
+    case 'Hayır, daha düşük.':
+      guessNumber = guessNumber - guessChange;
+      guessedNumbers.add(guessNumber);
+      guessChange = (guessChange / 2).ceil();
       Timer(const Duration(seconds: 1), () {
         messages.add(
           Message(
-            messageContent:
-                "Pardon, kusura bakma henüz o kadar zeki değilim :(",
-            messageType: MessageType.reciever,
-          ),
-        );
-        messages.add(
-          Message(
-            messageContent: "O zaman $randomNumber olabilir mi?",
+            messageContent: "Hmmm... O zaman $guessNumber!",
             messageType: MessageType.reciever,
           ),
         );
       });
       answers.addAll(
-        ['Evet, bildin!', 'Hayır, bilemedin.', 'Zaten o sayıyı söylemiştin.'],
+        ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
       );
       break;
   }

@@ -9,10 +9,31 @@ import '../models/message_model.dart';
 import '/data/fun_fact_data.dart';
 
 giveFunFact() {
+  if (funFacts.isEmpty) {
+    Timer(const Duration(seconds: 1), () {
+      messages.add(
+        Message(
+            messageContent:
+                "Şu an aklıma daha fazla bilgi gelmiyor. Başka bir şey yapalım!",
+            messageType: MessageType.reciever),
+      );
+    });
+    Timer(const Duration(seconds: 2), () {
+      answers.addAll(
+        [
+          'Oyun oynamak istiyorum.',
+          'Bir şeyler öğrenmek istiyorum.',
+          'Şu an bir şey yapmak istemiyorum.'
+        ],
+      );
+    });
+    return;
+  }
+
   Random random = Random();
   int randomFactIndex = random.nextInt(funFacts.length);
   String randomFact = funFacts[randomFactIndex];
-
+  funFacts.remove(randomFact);
   Timer(const Duration(seconds: 1), () {
     messages.add(
       Message(messageContent: "Hmmm...", messageType: MessageType.reciever),

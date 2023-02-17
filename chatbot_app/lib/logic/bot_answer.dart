@@ -64,13 +64,13 @@ botAnswer() {
       Timer(const Duration(seconds: 1), () {
         messages.add(
           Message(
-              messageContent: 'Tuttuğun sayı 7 mi?',
+              messageContent: 'Tuttuğun sayı 50 mi?',
               messageType: MessageType.reciever),
         );
       });
       Timer(const Duration(seconds: 1), () {
         answers.addAll(
-          ['Evet, bildin!', 'Hayır, bilemedin.', 'Zaten o sayıyı söylemiştin.'],
+          ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
         );
       });
       break;
