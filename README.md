@@ -39,3 +39,14 @@ You are more than welcome to open pull request if you want to contribute to any 
 
 # Project
 The general information about the projects in this repository may be found here.
+
+## ChatBot App 
+
+A simple chatbot app with a clean UI that can interact with users and play games with them. It was build for an assignment project.
+
+<img
+  src="https://user-images.githubusercontent.com/37070272/219418761-3185b35d-a292-4885-b274-dac18bc2da77.png"
+  width=39%
+  alt="Screenshot"
+  align="right"
+/>
