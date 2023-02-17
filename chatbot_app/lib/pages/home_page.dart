@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:chatbot_app/logic/greeting_user.dart';
 import 'package:chatbot_app/logic/number_guessing_game.dart';
 import 'package:chatbot_app/widgets/message_card.dart';
 import 'package:flutter/material.dart';
 
 import '../data/chat_data.dart';
 import '../data/answer_button_data.dart';
+import '../logic/bot_answer.dart';
 import '../widgets/answer_button.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,9 +21,15 @@ class _HomePageState extends State<HomePage> {
   void callback() {
     setState(() {
       answers.clear();
-      guessingTheNumber();
+      botAnswer();
     });
     Timer(const Duration(seconds: 1), () {
+      setState(() {});
+    });
+    Timer(const Duration(seconds: 2), () {
+      setState(() {});
+    });
+    Timer(const Duration(seconds: 3), () {
       setState(() {});
     });
   }
@@ -40,13 +48,16 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 7,
             child: ListView(
-                children:
-                    messages.map((message) => MessageCard(message)).toList()
+                children: messages
+                    .map(
+                      (message) => MessageCard(message),
+                    )
+                    .toList()
                 // Displaying the chat here.
                 ),
           ),
           Expanded(
-            flex: 3,
+            flex: 2,
             child: ListView(
                 children: answers
                     .map(

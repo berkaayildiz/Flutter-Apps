@@ -8,24 +8,24 @@ import '../models/message_model.dart';
 // TODO: Make this game more independent. It coupled with the answerButton.
 
 numberGuessingGame() {
-  messages.add(
-    Message(
-      messageContent:
-          "Hadi aklından 1 ile 10 arasında bir sayı tut! \nOnu tahmin etmeyi deneyeceğim.",
-      messageType: MessageType.reciever,
-    ),
-  );
-
-  messages.add(
-    Message(
-      messageContent: "Sayın acaba 7 mi?",
-      messageType: MessageType.reciever,
-    ),
-  );
-
-  answers.addAll(
-    ['Evet, bildin!', 'Hayır, bilemedin.', 'Zaten o sayıyı söylemiştin.'],
-  );
+  Timer(const Duration(seconds: 1), () {
+    messages.add(
+      Message(
+        messageContent:
+            "Hadi aklından 1 ile 10 arasında bir sayı tut! \nOnu tahmin etmeyi deneyeceğim.",
+        messageType: MessageType.reciever,
+      ),
+    );
+  });
+  Timer(const Duration(seconds: 2), () {
+    messages.add(
+      Message(
+        messageContent: "Tuttunca haber ver.",
+        messageType: MessageType.reciever,
+      ),
+    );
+    answers.add('Tuttum.');
+  });
 }
 
 guessingTheNumber() {
@@ -41,12 +41,20 @@ guessingTheNumber() {
             messageType: MessageType.reciever,
           ),
         );
+      });
+      Timer(const Duration(seconds: 2), () {
         messages.add(
           Message(
-            messageContent:
-                "Şimdilik bu kadar geliştirildim. \nMalesef daha fazla diyalog bilmiyorum :(",
+            messageContent: "Şimdi ne yapmak istersin?",
             messageType: MessageType.reciever,
           ),
+        );
+        answers.addAll(
+          [
+            'Oyun oynamak istiyorum.',
+            'Bir şeyler öğrenmek istiyorum.',
+            'Şu an bir şey yapmak istemiyorum.'
+          ],
         );
       });
       break;

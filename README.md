@@ -44,9 +44,4 @@ The general information about the projects in this repository may be found here.
 
 A simple chatbot app with a clean UI that can interact with users and play games with them. It was build for an assignment project.
 
-<img
-  src="https://user-images.githubusercontent.com/37070272/219418761-3185b35d-a292-4885-b274-dac18bc2da77.png"
-  width=39%
-  alt="Screenshot"
-  align="right"
-/>
+<img alt="funfact" src="https://user-images.githubusercontent.com/37070272/219700136-bb3a2aab-402e-4f0a-a8f5-fc44f8350b13.png" width=21%> <img alt="istemiyorum" src="https://user-images.githubusercontent.com/37070272/219700158-80744772-b415-47c9-947a-50c6402b4292.png" width=21%> <img alt="oyun" src="https://user-images.githubusercontent.com/37070272/219700171-76019a21-ed6f-4fc5-a1d0-7e7a20a4e9ae.png" width=21%>
