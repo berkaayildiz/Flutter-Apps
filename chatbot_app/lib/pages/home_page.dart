@@ -35,8 +35,15 @@ class _HomePageState extends State<HomePage> {
   }
   // TODO: Fix this callback method.
 
+  final ScrollController _scrollController = ScrollController();
+
+  _scrollToBottom() {
+    _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+  }
+
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       appBar: AppBar(
@@ -48,6 +55,7 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 7,
             child: ListView(
+                controller: _scrollController,
                 children: messages
                     .map(
                       (message) => MessageCard(message),
