@@ -14,7 +14,7 @@ class MessageCard extends StatelessWidget {
             ? Alignment.centerLeft
             : Alignment.centerRight,
         child: Container(
-          margin: const EdgeInsets.all(8),
+          margin: const EdgeInsets.all(7),
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: message.messageType == MessageType.reciever

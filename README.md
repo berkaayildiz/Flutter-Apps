@@ -42,6 +42,33 @@ The general information about the projects in this repository may be found here.
 
 ## ChatBot App 
 
-A simple chatbot app with a clean UI that can interact with users and play games with them. It was build for an assignment project.
+<img
+  src="https://user-images.githubusercontent.com/37070272/219824088-eada65f9-3047-4f6b-916a-1f0936558e28.png"
+  width=39%
+  alt="Screenshot"
+  align="right"
+/>
 
-<img alt="funfact" src="https://user-images.githubusercontent.com/37070272/219700136-bb3a2aab-402e-4f0a-a8f5-fc44f8350b13.png" width=21%> <img alt="istemiyorum" src="https://user-images.githubusercontent.com/37070272/219700158-80744772-b415-47c9-947a-50c6402b4292.png" width=21%> <img alt="oyun" src="https://user-images.githubusercontent.com/37070272/219700171-76019a21-ed6f-4fc5-a1d0-7e7a20a4e9ae.png" width=21%>
+A simple chatbot app with a clean UI that can interact with users and play games with them.
+
+### Usage
+It is actually quite simple to use. The bot welcomes you and offers you three choices as soon as you launch the app. Based on your selection, the bot will carry on the conversation for you.
+
+### Features
+
+The chatbot app includes the following features:
+
+- A chat interface that allows users to ask questions and receive responses
+- A simple but extensible chatbot engine that can be customized to handle a variety of use cases
+- Custom widgets that allows developers to manipulate the components easily
+
+### Customizing the Chatbot
+
+The chatbot is designed to be easily customized to handle a variety of use cases. To customize the chatbot, you can modify the logic folder. This folder contains the functions for generating responses to user input.
+
+
+### Acknowledgments
+
+- This project was not created for real world usage, may contain bugs.
+-  It was build for an assignment project.
+- UI was inspired by Mitch Koko.

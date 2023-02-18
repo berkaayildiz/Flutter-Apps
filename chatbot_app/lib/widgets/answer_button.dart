@@ -1,3 +1,4 @@
+import 'package:chatbot_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../data/chat_data.dart';
@@ -20,7 +21,7 @@ class AnswerButton extends StatelessWidget {
         );
         callback();
       },
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple[400]),
+      style: ElevatedButton.styleFrom(backgroundColor: darkPurple),
       child: Text(messageContext),
     );
   }

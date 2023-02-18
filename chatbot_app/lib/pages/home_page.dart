@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:chatbot_app/constants/colors.dart';
 import 'package:chatbot_app/logic/greeting_user.dart';
 import 'package:chatbot_app/logic/number_guessing_game.dart';
 import 'package:chatbot_app/widgets/message_card.dart';
@@ -45,10 +46,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: purple,
       appBar: AppBar(
+        backgroundColor: purple,
+        toolbarHeight: 50,
         title: const Text('C H A T  B O T'),
-        elevation: 1,
+        elevation: 0,
       ),
       body: Column(
         children: [
@@ -64,20 +67,21 @@ class _HomePageState extends State<HomePage> {
                 // Displaying the chat here.
                 ),
           ),
-          Expanded(
-            flex: 2,
-            child: ListView(
-                children: answers
-                    .map(
-                      (answer) => Center(
-                        child: AnswerButton(
-                            messageContext: answer, callback: callback),
-                      ),
-                    )
-                    .toList()
-                // Displaying the buttons here.
-                ),
-          ),
+          Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: answers
+                  .map(
+                    (answer) => Center(
+                      child: AnswerButton(
+                          messageContext: answer, callback: callback),
+                    ),
+                  )
+                  .toList()
+              // Displaying the buttons here.
+              ),
+          const SizedBox(
+            height: 30,
+          )
         ],
       ),
     );
