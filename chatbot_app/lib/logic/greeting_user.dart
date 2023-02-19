@@ -1,9 +1,6 @@
-import 'dart:async';
-
-import 'package:chatbot_app/logic/give_fun_fact.dart';
-
 import '../data/answer_button_data.dart';
 import '../data/chat_data.dart';
+
 import '../models/message_model.dart';
 
 greetingUser() {

@@ -1,7 +1,9 @@
-import 'package:chatbot_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/colors.dart';
+
 import '../data/chat_data.dart';
+
 import '../models/message_model.dart';
 
 class AnswerButton extends StatelessWidget {

@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:chatbot_app/pages/home_page.dart';
-
 import '../data/answer_button_data.dart';
 import '../data/chat_data.dart';
+import '../data/fun_fact_data.dart';
+
 import '../models/message_model.dart';
-import '/data/fun_fact_data.dart';
 
 giveFunFact() {
   if (funFacts.isEmpty) {

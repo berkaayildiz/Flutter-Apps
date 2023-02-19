@@ -1,15 +1,16 @@
 import 'dart:async';
 
-import 'package:chatbot_app/constants/colors.dart';
-import 'package:chatbot_app/logic/greeting_user.dart';
-import 'package:chatbot_app/logic/number_guessing_game.dart';
-import 'package:chatbot_app/widgets/message_card.dart';
 import 'package:flutter/material.dart';
 
-import '../data/chat_data.dart';
+import '../constants/colors.dart';
+
 import '../data/answer_button_data.dart';
+import '../data/chat_data.dart';
+
 import '../logic/bot_answer.dart';
+
 import '../widgets/answer_button.dart';
+import '../widgets/message_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
