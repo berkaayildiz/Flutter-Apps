@@ -1,26 +1,26 @@
 import 'dart:async';
 
-import '../data/answer_button_data.dart';
-import '../data/chat_data.dart';
+import 'package:provider/provider.dart';
 
+import '../controllers/conversation_controller.dart';
 import '../logic/number_guessing_game.dart';
 import '../logic/give_fun_fact.dart';
 import '../logic/greeting_user.dart';
-
 import '../models/message_model.dart';
 
-botAnswer() {
-  guessingTheNumber();
-  switch (messages.last.messageContent) {
+botAnswer(context) {
+  var chat = Provider.of<ConversationController>(context, listen: false);
+  guessingTheNumber(context);
+  switch (chat.messagesList.last.messageContent) {
     case 'Oyun oynamak istiyorum.':
-      numberGuessingGame();
+      numberGuessingGame(context);
       break;
     case 'Bir şeyler öğrenmek istiyorum.':
-      giveFunFact();
+      giveFunFact(context);
       break;
     case 'Şu an bir şey yapmak istemiyorum.':
       Timer(const Duration(seconds: 1), () {
-        messages.add(
+        chat.addMessage(
           Message(
               messageContent:
                   "Garip... Sanki uygulamayı ben çalıştırdım.\nNeyse, bir şey yapmak istersen tekrar yazabilirsin.",
@@ -28,31 +28,31 @@ botAnswer() {
         );
       });
       Timer(const Duration(seconds: 2), () {
-        messages.add(
+        chat.addMessage(
           Message(
               messageContent: "Görüşürüz!", messageType: MessageType.reciever),
         );
-        answers.add('Merhaba, geri geldim!');
+        chat.addButton('Merhaba, geri geldim!');
       });
       break;
     case 'Merhaba, geri geldim!':
       Timer(const Duration(seconds: 1), () {
-        greetingUser();
+        greetingUser(context);
       });
       break;
     case 'Olur, isterim.':
-      giveFunFact();
+      giveFunFact(context);
       break;
     case 'Hayır, istemiyorum.':
       Timer(const Duration(seconds: 1), () {
-        messages.add(
+        chat.addMessage(
           Message(
               messageContent: 'Tamam, ne yapmak istersin?',
               messageType: MessageType.reciever),
         );
       });
       Timer(const Duration(seconds: 2), () {
-        answers.addAll(
+        chat.addAllButtons(
           [
             'Oyun oynamak istiyorum.',
             'Bir şeyler öğrenmek istiyorum.',
@@ -63,14 +63,14 @@ botAnswer() {
       break;
     case 'Tuttum.':
       Timer(const Duration(seconds: 1), () {
-        messages.add(
+        chat.addMessage(
           Message(
               messageContent: 'Tuttuğun sayı 50 mi?',
               messageType: MessageType.reciever),
         );
       });
       Timer(const Duration(seconds: 1), () {
-        answers.addAll(
+        chat.addAllButtons(
           ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
         );
       });

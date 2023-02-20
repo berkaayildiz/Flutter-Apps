@@ -1,16 +1,17 @@
 import 'dart:async';
 import 'dart:math';
 
-import '../data/answer_button_data.dart';
-import '../data/chat_data.dart';
-import '../data/fun_fact_data.dart';
+import 'package:provider/provider.dart';
 
+import '../controllers/conversation_controller.dart';
+import '../data/fun_facts_data.dart';
 import '../models/message_model.dart';
 
-giveFunFact() {
+giveFunFact(context) {
+  var chat = Provider.of<ConversationController>(context, listen: false);
   if (funFacts.isEmpty) {
     Timer(const Duration(seconds: 1), () {
-      messages.add(
+      chat.addMessage(
         Message(
             messageContent:
                 "Şu an aklıma daha fazla bilgi gelmiyor. Başka bir şey yapalım!",
@@ -18,7 +19,7 @@ giveFunFact() {
       );
     });
     Timer(const Duration(seconds: 2), () {
-      answers.addAll(
+      chat.addAllButtons(
         [
           'Oyun oynamak istiyorum.',
           'Bir şeyler öğrenmek istiyorum.',
@@ -34,23 +35,23 @@ giveFunFact() {
   String randomFact = funFacts[randomFactIndex];
   funFacts.remove(randomFact);
   Timer(const Duration(seconds: 1), () {
-    messages.add(
+    chat.addMessage(
       Message(messageContent: "Hmmm...", messageType: MessageType.reciever),
     );
   });
 
   Timer(const Duration(seconds: 2), () {
-    messages.add(
+    chat.addMessage(
       Message(messageContent: randomFact, messageType: MessageType.reciever),
     );
   });
   Timer(const Duration(seconds: 3), () {
-    messages.add(
+    chat.addMessage(
       Message(
           messageContent: "Bir tane daha ister misin?",
           messageType: MessageType.reciever),
     );
-    answers.addAll(
+    chat.addAllButtons(
       ['Olur, isterim.', 'Hayır, istemiyorum.'],
     );
   });

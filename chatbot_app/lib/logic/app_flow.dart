@@ -1,5 +1,5 @@
 import '../logic/greeting_user.dart';
 
-appFlow() {
-  greetingUser();
+appFlow(context) {
+  greetingUser(context);
 }

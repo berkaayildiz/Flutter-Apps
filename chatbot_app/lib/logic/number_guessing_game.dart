@@ -1,15 +1,16 @@
 import 'dart:async';
 
-import '../data/answer_button_data.dart';
-import '../data/chat_data.dart';
+import 'package:provider/provider.dart';
 
+import '../controllers/conversation_controller.dart';
 import '../models/message_model.dart';
 
 // TODO: Make this game more independent. It coupled with the answerButton.
 
-numberGuessingGame() {
+numberGuessingGame(context) {
+  var chat = Provider.of<ConversationController>(context, listen: false);
   Timer(const Duration(seconds: 1), () {
-    messages.add(
+    chat.addMessage(
       Message(
         messageContent:
             "Hadi aklından 1 ile 101 arasında bir sayı tut! \nOnu tahmin etmeyi deneyeceğim.",
@@ -18,13 +19,13 @@ numberGuessingGame() {
     );
   });
   Timer(const Duration(seconds: 2), () {
-    messages.add(
+    chat.addMessage(
       Message(
         messageContent: "Tuttunca haber ver.",
         messageType: MessageType.reciever,
       ),
     );
-    answers.add('Tuttum.');
+    chat.addButton('Tuttum.');
   });
 }
 
@@ -32,13 +33,14 @@ int guessNumber = 50;
 int guessChange = 25;
 int guessCount = 0;
 
-guessingTheNumber() {
+guessingTheNumber(context) {
+  var chat = Provider.of<ConversationController>(context, listen: false);
   if (guessChange == 2) {
     guessChange = 1;
   }
   if (guessCount == 7) {
     Timer(const Duration(seconds: 1), () {
-      messages.add(
+      chat.addMessage(
         Message(
           messageContent:
               "Hey, hile yapıyorsun! Daha fazla oynamak istemiyorum, Başka bir şey yapalım.",
@@ -48,7 +50,7 @@ guessingTheNumber() {
     });
 
     Timer(const Duration(seconds: 2), () {
-      answers.addAll(
+      chat.addAllButtons(
         [
           'Oyun oynamak istiyorum.',
           'Bir şeyler öğrenmek istiyorum.',
@@ -62,10 +64,10 @@ guessingTheNumber() {
     return;
   }
 
-  switch (messages.last.messageContent) {
+  switch (chat.messagesList.last.messageContent) {
     case 'Evet, bildin!':
       Timer(const Duration(seconds: 1), () {
-        messages.add(
+        chat.addMessage(
           Message(
             messageContent: "Haha, aslında başından beri biliyordum!",
             messageType: MessageType.reciever,
@@ -73,13 +75,13 @@ guessingTheNumber() {
         );
       });
       Timer(const Duration(seconds: 2), () {
-        messages.add(
+        chat.addMessage(
           Message(
             messageContent: "Şimdi ne yapmak istersin?",
             messageType: MessageType.reciever,
           ),
         );
-        answers.addAll(
+        chat.addAllButtons(
           [
             'Oyun oynamak istiyorum.',
             'Bir şeyler öğrenmek istiyorum.',
@@ -96,14 +98,14 @@ guessingTheNumber() {
       guessChange = (guessChange / 2).ceil();
       guessCount++;
       Timer(const Duration(seconds: 1), () {
-        messages.add(
+        chat.addMessage(
           Message(
             messageContent: "Hmmm... O zaman $guessNumber!",
             messageType: MessageType.reciever,
           ),
         );
       });
-      answers.addAll(
+      chat.addAllButtons(
         ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
       );
       break;
@@ -112,14 +114,14 @@ guessingTheNumber() {
       guessChange = (guessChange / 2).ceil();
       guessCount++;
       Timer(const Duration(seconds: 1), () {
-        messages.add(
+        chat.addMessage(
           Message(
             messageContent: "Hmmm... O zaman $guessNumber!",
             messageType: MessageType.reciever,
           ),
         );
       });
-      answers.addAll(
+      chat.addAllButtons(
         ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
       );
       break;

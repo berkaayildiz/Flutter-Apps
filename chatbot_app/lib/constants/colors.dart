@@ -1,5 +1,8 @@
 import 'dart:ui';
 
-Color grey = const Color.fromARGB(170, 245, 245, 252);
-Color purple = const Color.fromARGB(255, 129, 111, 209);
-Color darkPurple = const Color.fromARGB(207, 126, 107, 204);
+const Color themeColor = Color.fromARGB(255, 129, 111, 209);
+const Color buttonColor = Color.fromARGB(255, 235, 223, 255);
+const Color messageBoxSenderColor = Color.fromARGB(255, 255, 255, 255);
+const Color messageBoxRecieverColor = Color.fromARGB(255, 209, 196, 233);
+
+const String appBarTitle = 'C H A T  B O T';

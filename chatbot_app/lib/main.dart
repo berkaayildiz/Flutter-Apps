@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../logic/app_flow.dart';
-
+import '../constants/colors.dart';
+import '../controllers/conversation_controller.dart';
 import '../pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
-  appFlow();
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ConversationController(),
+      child: const ChatBotApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ChatBotApp extends StatelessWidget {
+  const ChatBotApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
-      theme: ThemeData(primaryColor: const Color.fromARGB(255, 129, 111, 209)),
+      theme: ThemeData(
+          useMaterial3: true,
+          primaryColor: themeColor,
+          appBarTheme: const AppBarTheme(
+            toolbarHeight: 50,
+            elevation: 0,
+            color: themeColor,
+          ),
+          scaffoldBackgroundColor: themeColor),
     );
   }
 }

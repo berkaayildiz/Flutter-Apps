@@ -1,16 +1,17 @@
-import '../data/answer_button_data.dart';
-import '../data/chat_data.dart';
+import 'package:provider/provider.dart';
 
+import '../controllers/conversation_controller.dart';
 import '../models/message_model.dart';
 
-greetingUser() {
-  messages.add(
+greetingUser(context) {
+  var chat = Provider.of<ConversationController>(context, listen: false);
+  chat.addMessage(
     Message(
         messageContent:
             "Seni tekrar gördüğüme sevindim! \nBugün ne yapmak istersin?",
         messageType: MessageType.reciever),
   );
-  answers.addAll(
+  chat.addAllButtons(
     [
       'Oyun oynamak istiyorum.',
       'Bir şeyler öğrenmek istiyorum.',
