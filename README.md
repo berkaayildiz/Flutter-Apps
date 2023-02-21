@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://user-images.githubusercontent.com/37070272/220220396-32e01e40-645c-415a-8ce5-125a3ef3ab66.png" width="128" height="128"/>
+<img src="https://user-images.githubusercontent.com/37070272/219638474-f7ac2a87-8b4e-4e9c-a916-818b539f2d9f.png" width="128" height="128"/>
 <p>
 <h1 align="center">
 Flutter Apps
@@ -43,7 +43,7 @@ The general information about the projects in this repository may be found here.
 ## ChatBot App 
 
 <img
-  src="https://user-images.githubusercontent.com/37070272/219824088-eada65f9-3047-4f6b-916a-1f0936558e28.png"
+  src="https://user-images.githubusercontent.com/37070272/220220396-32e01e40-645c-415a-8ce5-125a3ef3ab66.png"
   width=39%
   alt="Screenshot"
   align="right"
