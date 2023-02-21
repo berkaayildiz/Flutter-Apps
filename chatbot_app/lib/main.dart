@@ -26,9 +26,15 @@ class ChatBotApp extends StatelessWidget {
           useMaterial3: true,
           primaryColor: themeColor,
           appBarTheme: const AppBarTheme(
+            scrolledUnderElevation: BorderSide.strokeAlignOutside,
             toolbarHeight: 50,
             elevation: 0,
-            color: themeColor,
+            color: layoutColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(30),
+              ),
+            ),
           ),
           scaffoldBackgroundColor: themeColor),
     );

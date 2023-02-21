@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../models/message_model.dart';
 
+// TODO: Bazen butona basınca consolda "setState() or markNeedsBuild() called during build." hatası veriyor ama uygulama çalışıyor. Çözmeye çalış.
+
 class ConversationController extends ChangeNotifier {
   List<Message> messagesList = [];
   List<String> answersList = [];

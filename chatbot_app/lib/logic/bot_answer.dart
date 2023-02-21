@@ -35,6 +35,9 @@ botAnswer(context) {
         chat.addButton('Merhaba, geri geldim!');
       });
       break;
+
+    // TODO: 'Merhaba, geri geldim!' butonuna basınca bot onu geri karşılamıyor.
+
     case 'Merhaba, geri geldim!':
       Timer(const Duration(seconds: 1), () {
         greetingUser(context);

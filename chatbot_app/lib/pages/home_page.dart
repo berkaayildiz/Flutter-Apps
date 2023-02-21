@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../constants/constants.dart';
@@ -17,11 +19,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     greetingUser(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(appBarTitle),
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, 53.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+            child: AppBar(
+              title: const Text(appBarTitle),
+            ),
+          ),
+        ),
       ),
       body: Column(
-        children: const [ChatScreen(), ButtonScreen(), SizedBox(height: 30)],
+        children: const [ChatScreen(), ButtonScreen()],
       ),
     );
   }
