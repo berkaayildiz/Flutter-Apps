@@ -37,6 +37,7 @@ guessingTheNumber(context) {
     guessChange = 1;
   }
   if (guessCount == 7) {
+    chat.clearAllButtons();
     Timer(const Duration(seconds: 1), () {
       chat.addMessage(
         Message(
@@ -102,10 +103,10 @@ guessingTheNumber(context) {
             messageType: MessageType.reciever,
           ),
         );
+        chat.addAllButtons(
+          ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
+        );
       });
-      chat.addAllButtons(
-        ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
-      );
       break;
     case 'Hayır, daha düşük.':
       guessNumber = guessNumber - guessChange;
@@ -118,10 +119,10 @@ guessingTheNumber(context) {
             messageType: MessageType.reciever,
           ),
         );
+        chat.addAllButtons(
+          ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
+        );
       });
-      chat.addAllButtons(
-        ['Evet, bildin!', 'Hayır, daha yüksek.', 'Hayır, daha düşük.'],
-      );
       break;
   }
 }

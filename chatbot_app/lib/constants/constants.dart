@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 const Color themeColor = Color.fromARGB(255, 129, 111, 209);

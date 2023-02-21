@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../controllers/conversation_controller.dart';
-import '../logic/bot_answer.dart';
 import 'answer_button.dart';
 
 class ButtonScreen extends StatelessWidget {
@@ -11,7 +10,6 @@ class ButtonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ConversationController>(builder: (context, chat, child) {
-      botAnswer(context);
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: chat.answersList
