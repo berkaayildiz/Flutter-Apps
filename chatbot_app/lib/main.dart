@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../constants/colors.dart';
+import 'constants/constants.dart';
 import '../controllers/conversation_controller.dart';
 import '../pages/home_page.dart';
 

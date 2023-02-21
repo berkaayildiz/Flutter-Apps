@@ -6,9 +6,7 @@ import '../logic/bot_answer.dart';
 import 'answer_button.dart';
 
 class ButtonScreen extends StatelessWidget {
-  const ButtonScreen({super.key, required this.callback});
-
-  final Function callback;
+  const ButtonScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,7 @@ class ButtonScreen extends StatelessWidget {
         children: chat.answersList
             .map(
               (answer) => Center(
-                child: AnswerButton(messageContext: answer, callback: callback),
+                child: AnswerButton(messageContext: answer),
               ),
             )
             .toList(),

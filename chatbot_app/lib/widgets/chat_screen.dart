@@ -15,13 +15,15 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ConversationController>(builder: (context, chat, child) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
-      return ListView(
-        controller: _scrollController,
-        children:
-            chat.messagesList.map((message) => MessageBox(message)).toList(),
-      );
-    });
+    return Expanded(
+      child: Consumer<ConversationController>(builder: (context, chat, child) {
+        WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
+        return ListView(
+          controller: _scrollController,
+          children:
+              chat.messagesList.map((message) => MessageBox(message)).toList(),
+        );
+      }),
+    );
   }
 }

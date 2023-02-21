@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/colors.dart';
+import '../constants/constants.dart';
 import '../models/message_model.dart';
 
 class MessageBox extends StatelessWidget {
@@ -15,7 +15,7 @@ class MessageBox extends StatelessWidget {
           ? Alignment.centerLeft
           : Alignment.centerRight,
       child: Container(
-        margin: const EdgeInsets.all(7),
+        margin: const EdgeInsets.all(6),
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: message.messageType == MessageType.reciever

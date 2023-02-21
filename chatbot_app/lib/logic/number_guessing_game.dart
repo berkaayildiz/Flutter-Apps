@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import '../controllers/conversation_controller.dart';
 import '../models/message_model.dart';
 
-// TODO: Make this game more independent. It coupled with the answerButton.
-
 numberGuessingGame(context) {
   var chat = Provider.of<ConversationController>(context, listen: false);
   Timer(const Duration(seconds: 1), () {
