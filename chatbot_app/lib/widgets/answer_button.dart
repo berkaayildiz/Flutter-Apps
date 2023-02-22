@@ -1,4 +1,3 @@
-import 'package:chatbot_app/logic/bot_answer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,14 +15,13 @@ class AnswerButton extends StatelessWidget {
     return Consumer<ConversationController>(
       builder: (context, chat, child) => ElevatedButton(
         onPressed: () {
-          var chat = context.read<ConversationController>();
           chat.addMessage(
             Message(
                 messageContent: messageContext,
                 messageType: MessageType.sender),
           );
           chat.clearAllButtons();
-          botAnswer(context);
+          chat.botAnswer();
         },
         style: ElevatedButton.styleFrom(backgroundColor: buttonColor),
         child: Text(messageContext),

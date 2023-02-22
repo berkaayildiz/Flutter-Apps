@@ -1,10 +1,11 @@
-import 'package:chatbot_app/widgets/frost_glass_effect.dart';
 import 'package:flutter/material.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+
 import '../constants/constants.dart';
-import '../logic/greeting_user.dart';
 import '../widgets/button_screen.dart';
 import '../widgets/chat_screen.dart';
+import '../widgets/frost_glass_effect.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +17,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    greetingUser(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
       extendBody: true,
@@ -24,7 +24,11 @@ class _HomePageState extends State<HomePage> {
         preferredSize: const Size(double.infinity, 53.0),
         child: FrostGlassEffect(
           child: AppBar(
-            title: const Text(appBarTitle),
+            title: Text(
+              appBarTitle,
+              style: GoogleFonts.gothicA1(
+                  textStyle: const TextStyle(fontWeight: FontWeight.w600)),
+            ),
           ),
         ),
       ),

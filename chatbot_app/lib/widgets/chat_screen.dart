@@ -15,17 +15,15 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Consumer<ConversationController>(builder: (context, chat, child) {
-        WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
-        return ListView(
-          // TODO: Bottom padding'i dinamik olarak bottomSheet height kadar yap.
-          padding: const EdgeInsets.only(top: 115, bottom: 180),
-          controller: _scrollController,
-          children:
-              chat.messagesList.map((message) => MessageBox(message)).toList(),
-        );
-      }),
-    );
+    return Consumer<ConversationController>(builder: (context, chat, child) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
+      return ListView(
+        // TODO: Bottom padding'i dinamik olarak bottomSheet height kadar yap.
+        padding: const EdgeInsets.only(top: 115, bottom: 180),
+        controller: _scrollController,
+        children:
+            chat.messagesList.map((message) => MessageBox(message)).toList(),
+      );
+    });
   }
 }
