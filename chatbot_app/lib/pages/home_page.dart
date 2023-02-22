@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:chatbot_app/widgets/frost_glass_effect.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/constants.dart';
@@ -20,21 +19,17 @@ class _HomePageState extends State<HomePage> {
     greetingUser(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
+      extendBody: true,
       appBar: PreferredSize(
         preferredSize: const Size(double.infinity, 53.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-            child: AppBar(
-              title: const Text(appBarTitle),
-            ),
+        child: FrostGlassEffect(
+          child: AppBar(
+            title: const Text(appBarTitle),
           ),
         ),
       ),
-      body: Column(
-        children: const [ChatScreen(), ButtonScreen()],
-      ),
+      body: const ChatScreen(),
+      bottomSheet: const FrostGlassEffect(child: ButtonScreen()),
     );
   }
 }

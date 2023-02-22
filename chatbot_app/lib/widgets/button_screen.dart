@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import '../controllers/conversation_controller.dart';
 import 'answer_button.dart';
 
-// TODO: ButtonScreen'i de appBar gibi glassmorphic yap.
-
 class ButtonScreen extends StatelessWidget {
   const ButtonScreen({super.key});
 
@@ -16,7 +14,7 @@ class ButtonScreen extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.only(top: 8, bottom: 20),
         decoration: BoxDecoration(
-          color: constantLayoutColor,
+          color: layoutColor,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Column(

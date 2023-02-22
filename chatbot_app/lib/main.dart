@@ -25,6 +25,8 @@ class ChatBotApp extends StatelessWidget {
       theme: ThemeData(
           useMaterial3: true,
           primaryColor: themeColor,
+          bottomSheetTheme: const BottomSheetThemeData(
+              backgroundColor: Colors.transparent, elevation: 0),
           appBarTheme: const AppBarTheme(
             scrolledUnderElevation: BorderSide.strokeAlignOutside,
             toolbarHeight: 50,
