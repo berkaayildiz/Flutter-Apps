@@ -43,7 +43,7 @@ The general information about the projects in this repository may be found here.
 ## ChatBot App 
 
 <img
-  src="https://user-images.githubusercontent.com/37070272/220717201-612f6ba2-3f18-49ff-9f49-beba5535e058.png"
+  src="https://user-images.githubusercontent.com/37070272/220718904-94817555-af52-40b1-8fa3-42286060c4fd.png"
   width=39%
   alt="Screenshot"
   align="right"
