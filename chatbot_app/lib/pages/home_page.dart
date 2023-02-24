@@ -27,8 +27,11 @@ class _HomePageState extends State<HomePage> {
             title: Text(
               appBarTitle,
               style: GoogleFonts.gothicA1(
-                  textStyle: const TextStyle(
-                      fontWeight: FontWeight.w600, color: appBarTextColor)),
+                textStyle: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: appBarTextColor,
+                ),
+              ),
             ),
           ),
         ),

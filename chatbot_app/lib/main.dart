@@ -23,22 +23,25 @@ class ChatBotApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
       theme: ThemeData(
-          useMaterial3: true,
-          primaryColor: themeColor,
-          bottomSheetTheme: const BottomSheetThemeData(
-              backgroundColor: Colors.transparent, elevation: 0),
-          appBarTheme: const AppBarTheme(
-            scrolledUnderElevation: BorderSide.strokeAlignOutside,
-            toolbarHeight: 50,
-            elevation: 0,
-            color: layoutColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.circular(30),
-              ),
+        useMaterial3: true,
+        primaryColor: themeColor,
+        bottomSheetTheme: const BottomSheetThemeData(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        appBarTheme: const AppBarTheme(
+          scrolledUnderElevation: BorderSide.strokeAlignOutside,
+          toolbarHeight: 50,
+          elevation: 0,
+          color: layoutColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
             ),
           ),
-          scaffoldBackgroundColor: themeColor),
+        ),
+        scaffoldBackgroundColor: themeColor,
+      ),
     );
   }
 }

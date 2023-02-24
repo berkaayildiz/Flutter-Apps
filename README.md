@@ -64,7 +64,7 @@ The chatbot app includes the following features:
 
 ### Customizing the Chatbot
 
-The chatbot is designed to be easily customized to handle a variety of use cases. To customize the chatbot, you can modify the logic folder. This folder contains the functions for generating responses to user input.
+The chatbot is designed to be easily customized to handle a variety of use cases. To customize the chatbot, you can modify the [controllers](chatbot_app/lib/controllers) folder. This folder contains the functions for generating responses to user input.
 
 
 ### Acknowledgments

@@ -17,8 +17,9 @@ class AnswerButton extends StatelessWidget {
         onPressed: () {
           chat.addMessage(
             Message(
-                messageContent: messageContext,
-                messageType: MessageType.sender),
+              messageContent: messageContext,
+              messageType: MessageType.sender,
+            ),
           );
           chat.clearAllButtons();
           chat.botAnswer();

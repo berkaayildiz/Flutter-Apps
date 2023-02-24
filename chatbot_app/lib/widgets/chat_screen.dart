@@ -21,8 +21,11 @@ class ChatScreen extends StatelessWidget {
         // TODO: Bottom padding'i dinamik olarak bottomSheet height kadar yap.
         padding: const EdgeInsets.only(top: 115, bottom: 180),
         controller: _scrollController,
-        children:
-            chat.messagesList.map((message) => MessageBox(message)).toList(),
+        children: chat.messagesList
+            .map(
+              (message) => MessageBox(message),
+            )
+            .toList(),
       );
     });
   }

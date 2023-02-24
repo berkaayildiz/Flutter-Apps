@@ -12,7 +12,9 @@ class FrostGlassEffect extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(30),
       child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), child: child),
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: child,
+      ),
     );
   }
 }
