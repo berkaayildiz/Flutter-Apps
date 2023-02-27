@@ -72,3 +72,38 @@ The chatbot is designed to be easily customized to handle a variety of use cases
 - This project was not created for real world usage, may contain bugs.
 -  It was build for an assignment project.
 - UI was inspired by Mitch Koko.
+
+
+## Earthquake Tracker App 
+
+<img
+  src="https://user-images.githubusercontent.com/37070272/221447373-d3acc894-7fae-449c-afd3-9f2855741048.png"
+  width=39%
+  alt="Screenshot"
+  align="right"
+/>
+
+"Son Depremler" is a Flutter-based mobile application that tracks the latest earthquakes in Turkey. The app uses an API to fetch earthquake data and displays the earthquake location, magnitude, and time in a list view.
+
+### Usage
+The most recent earthquake data will be fetched and displayed in a list format as soon as the app is launched on your mobile device. You can pull down on the screen to refresh the data and use the slider at the bottom of the screen to filter the earthquakes by their magnitude range.
+
+### Features
+
+The app includes the following features:
+
+- Display latest earthquake data in a list view
+- Filter earthquakes by their magnitude range
+- Pull-to-refresh to fetch the latest data
+
+### Customizing the API
+
+You can change the API to implement it to other countries or different sources.
+
+### Dependencies
+
+- `http`
+- `html_parser`
+
+### Acknowledgments
+- I didn't know much about HTML scraping so I used ChatGPT for that part.
