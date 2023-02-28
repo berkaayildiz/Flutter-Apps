@@ -40,6 +40,8 @@ You are more than welcome to open pull request if you want to contribute to any 
 # Projects
 The general information about the projects in this repository may be found here.
 
+---
+
 ## ChatBot App 
 
 <img
@@ -73,6 +75,7 @@ The chatbot is designed to be easily customized to handle a variety of use cases
 -  It was build for an assignment project.
 - UI was inspired by Mitch Koko.
 
+---
 
 ## Earthquake Tracker App 
 
@@ -107,3 +110,39 @@ You can change the API to implement it to other countries or different sources.
 
 ### Acknowledgments
 - I didn't know much about HTML scraping so I used ChatGPT for that part.
+
+---
+
+## Countdown App
+
+<img
+  src="https://user-images.githubusercontent.com/37070272/221721155-1885e257-355d-4aa9-b26c-9616d932c3bb.png"
+  width=39%
+  alt="Screenshot"
+  align="right"
+/>
+
+"Countdown!" is a Flutter application that provides a countdown timer to help you keep track of important events or deadlines. The app allows you to create multiple countdowns, each with its own title and end date/time.
+
+### Usage
+
+Tap the plus icon and enter the name and date of the event you want to create. You can create as many events as you want.
+
+### Features
+
+- Create multiple countdowns
+- Customizable countdown titles
+- Set an end date and time for each countdown
+- Countdown displays days, hours, minutes, and seconds
+
+### Customizing the App
+
+Since I used a 3rd party package to implement countdown, it would be easier to make changes with the help of the documentation of the package.
+
+### Dependencies
+
+- `flutter_countdown_timer`
+
+### Acknowledgments
+- Learned more about null safety while developing this app.
+- Has some bugs for large inputs.
